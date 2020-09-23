@@ -1,0 +1,2 @@
+One approache is to use an Attention based model like Transformer. RNNs and LSTMs are more difficult to train as compared to Transformers
+as they require a lot more memory-bandwidth for computation. Hence they cannot utilize hardware acceleration.
