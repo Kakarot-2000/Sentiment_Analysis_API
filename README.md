@@ -11,7 +11,8 @@ Dataset downloaded from : https://www.kaggle.com/crowdflower/first-gop-debate-tw
 
 Folder Structure
 1. app.py: This file contains the Flask specific code.
-2. Templates folder: This folder contains the HTML/CSS and other files. These HTML files will be rendered on the web browser.
+2. Templates folder: This folder contains the HTML files. These HTML files will be rendered on the web browser.
+3. Styles folder: This folder contains CSS files.
 
 To Run The Application
 1. Run 'python app.py' on cmd
