@@ -17,10 +17,13 @@ from nltk.corpus import stopwords
 from flask import Flask,render_template,request
 from tensorflow.keras.models import model_from_json
 
+#Flask object instantiation
 app=Flask(__name__)
 
+#decorator to map URL function
 @app.route('/')
 def home():
+    #render_template() renders the template
     return render_template('home.html')
 
 @app.route('/predict',methods=['POST'])
@@ -95,6 +98,8 @@ def predict():
     model3=model_from_json(open('lstm_model1.json').read())
     model3.load_weights('lstm_model1_weights.h5')
     model3.compile(loss='binary_crossentropy',optimizer='RMSprop',metrics=['accuracy'])
+    
+    #POST method transports the form data to the server in the message body
     if request.method=='POST':
         text=request.form['message']
         #preprocessing input
@@ -113,4 +118,5 @@ def predict():
 
 #run() makes sure to run only app.py on the server when this script is executed by the Python interpreter
 if __name__=='__main__':
+    #debug==True activates the Flask debugger
     app.run(debug=True)
