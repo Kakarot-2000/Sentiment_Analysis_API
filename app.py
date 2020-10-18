@@ -77,17 +77,14 @@ class Predict(Resource):
         #print("recieved input shape : ",val.shape)
         res=model3.predict_classes(val)
         res=res[0][0]
-        #print("RES : ",res)
+        #creating json object
+        #returning to user
         if(res==1):
             return {'prediction':1}
         else:
             return {'prediction':0}
-        #creating json object
-        #returning to user
+
         
-        return output
-
-
 #Routing the base URL to the resource
 api.add_resource(Predict,'/')
 
