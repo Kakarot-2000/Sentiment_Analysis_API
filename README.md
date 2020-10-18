@@ -10,12 +10,13 @@ They also improved machine translation, which resulted in the ability to transla
 
 Dataset downloaded from : [link](https://www.kaggle.com/crowdflower/first-gop-debate-twitter-sentiment#)
 
-Folder Structure
+Folder Structure:
 - app.py: This file contains the Flask specific code.
 - lstm_model.py: This file contains the original code used to train the model.
 
 Ways to Access the API:
 - **Using request module in python** 
+
 *Enter this code in jupyter notebook*
 ```
 $import requests
