@@ -93,4 +93,4 @@ api.add_resource(Predict,'/')
 if __name__=='__main__':
     
     #debug==True activates the Flask debugger and provides detailed error messages
-    app.run(debug=True)
+    app.run(debug=False)
