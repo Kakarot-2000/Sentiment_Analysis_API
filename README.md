@@ -19,13 +19,13 @@ Ways to Access the API:
 
 *Enter this code in jupyter notebook*
 ```
-$import requests
-$url='http://127.0.0.1:5000/'
-$params={'query':'_enter_input_here_'}
-$response=requests.get(url,params) 
-$response.json()  
+import requests
+url='http://127.0.0.1:5000/'
+params={'query':'_enter_input_here_'}
+response=requests.get(url,params) 
+response.json()  
 ```  
 - **Using curl in the terminal**
 ```
-$ curl -X GET http://127.0.0.1:5000/ -d query='_enter_input_here_'
+curl -X GET http://127.0.0.1:5000/ -d query='_enter_input_here_'
 ```
