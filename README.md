@@ -8,14 +8,13 @@ Why use LSTM?
 LSTMs overcame the vanishing gradients problem in RNN and this resulted in amazing results in speech to text conversion and the advancement of Siri, Cortana, Google voice assistant, Alexa etc. 
 They also improved machine translation, which resulted in the ability to translate documents into different languages, translate images into text, text into images, and captioning video etc.
 
-Dataset downloaded from : [link] (https://www.kaggle.com/crowdflower/first-gop-debate-twitter-sentiment#)
+Dataset downloaded from : [link](https://www.kaggle.com/crowdflower/first-gop-debate-twitter-sentiment#)
 
-
-##Folder Structure
+Folder Structure
 - app.py: This file contains the Flask specific code.
 - lstm_model.py: This file contains the original code used to train the model.
 
-##Ways to Access the API:
+Ways to Access the API:
 - **Using request module in python** 
 *Enter this code in jupyter notebook*
 ```
