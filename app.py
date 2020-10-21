@@ -12,11 +12,39 @@ from keras.utils.np_utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
 import re
 import nltk
-nltk.download('stopwords')
 from nltk.corpus import stopwords
+nltk.download('stopwords')
 from flask import Flask,render_template,request
 from tensorflow.keras.models import model_from_json
 from flask_restful import reqparse,Api,Resource
+import pickle
+
+'''
+# df1 consists of 10729 texts 
+df1=pd.read_csv('Sentiment.csv')
+df1=df1[['text','sentiment']]
+df1=df1[df1.sentiment!='Neutral']
+#print(df1)
+label_encoder=LabelEncoder()
+df1['sentiment']=label_encoder.fit_transform(df1['sentiment'])
+#preprocessing data
+for i in range(len(df1.index)):
+    text=df1.iloc[i,0]
+    text=re.sub('[^a-zA-Z]',' ',text)
+    text=(text.lower()).split()
+    text=[word for word in text if (word not in set(stopwords.words('english')) and word!='rt')]
+    text=' '.join(text)
+    #print(text)
+    df1.iloc[i,0]=text
+#saving to disk
+df1.to_csv('df2.csv')
+'''
+
+df1=pd.read_csv('df2.csv')
+# Vectorizing a text corpus using Tokenizer object
+tokenizer=Tokenizer(num_words=3000,split=' ')  #num_words is the max number of tokens to keep
+# to update internal vocabulary based on a list of texts
+tokenizer.fit_on_texts(df1['text'].values)
 
 #Flask object instantiation
 app=Flask(__name__)
@@ -39,32 +67,8 @@ class Predict(Resource):
         #using parser to find users query
         args=parser.parse_args()
         text=args['query']
-        # df1 consists of 10729 texts 
-        df1=pd.read_csv('Sentiment.csv')
-        df1=df1[['text','sentiment']]
-        df1=df1[df1.sentiment!='Neutral']
-        #print(df1)
-
-        label_encoder=LabelEncoder()
-        df1['sentiment']=label_encoder.fit_transform(df1['sentiment'])
-        #preprocessing data
-        for i in range(len(df1.index)):
-            text=df1.iloc[i,0]
-            text=re.sub('[^a-zA-Z]',' ',text)
-            text=(text.lower()).split()
-            text=[word for word in text if (word not in set(stopwords.words('english')) and word!='rt')]
-            text=' '.join(text)
-            #print(text)
-            df1.iloc[i,0]=text
-        # Vectorizing a text corpus using Tokenizer object
-        tokenizer=Tokenizer(num_words=3000,split=' ')  #num_words is the max number of tokens to keep
-        # to update internal vocabulary based on a list of texts
-        tokenizer.fit_on_texts(df1['text'].values)
-        #turning each text into a sequence of integers (each integer being the index of a token in a dictionary)
-        X = tokenizer.texts_to_sequences(df1['text'])
-        #pad_sequences to convert the sequences into 2-D numpy array.
-        X = pad_sequences(X)
-    
+        
+        
         #preprocessing input
         list1=[text]
         for input_text in list1:
@@ -77,6 +81,7 @@ class Predict(Resource):
         #print("recieved input shape : ",val.shape)
         res=model3.predict_classes(val)
         res=res[0][0]
+        #print("RES : ",res)
         #creating json object
         #returning to user
         if(res==1):
@@ -84,7 +89,6 @@ class Predict(Resource):
         else:
             return {'prediction':0}
 
-        
 #Routing the base URL to the resource
 api.add_resource(Predict,'/')
 
@@ -93,4 +97,4 @@ api.add_resource(Predict,'/')
 if __name__=='__main__':
     
     #debug==True activates the Flask debugger and provides detailed error messages
-    app.run(debug=False)
+    app.run(debug=True)
