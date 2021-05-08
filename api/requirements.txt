@@ -1,0 +1,7 @@
+tensorflow-cpu
+keras
+nltk
+flask
+pandas
+gunicorn
+sklearn
