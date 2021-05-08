@@ -30,3 +30,7 @@ response.json()
 ```
 curl -X GET http://127.0.0.1:5000/ -d query='_enter_input_here_'
 ```
+
+**How to Improve Accuracy :**
+One approache is to use an Attention based model like Transformers. RNNs and LSTMs are more difficult to train as compared to Transformers
+as they require a lot more memory-bandwidth for computation. Hence they cannot utilize hardware acceleration.
