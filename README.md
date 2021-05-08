@@ -9,9 +9,9 @@ They also improved machine translation, which resulted in the ability to transla
 Dataset downloaded from : [link](https://www.kaggle.com/crowdflower/first-gop-debate-twitter-sentiment#)
 
 ## Folder Structure:
-- ### api/  :  contains all the files needed for the flask container
-- ### nginx/ :   contains all the files needed for the nginx container
-- ## docker-compose.yml : ** config file for docker-compose 
+-  api/   :  contains all the files needed for the flask container
+-  nginx/  :   contains all the files needed for the nginx container
+- docker-compose.yml  :  config file for docker-compose 
 
 ## How to Run : 
 Make sure that docker is installed on the system before starting 
@@ -20,7 +20,8 @@ Make sure that docker is installed on the system before starting
 ```
 $ docker-compose up --build
 ```
-** Note : --build is only needed the first time you are running this command **
+
+Note : --build is only needed the first time you are running this command
 
 Now the container will be up and running on http://localhost .
 
