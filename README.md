@@ -9,25 +9,27 @@ They also improved machine translation, which resulted in the ability to transla
 Dataset downloaded from : [link](https://www.kaggle.com/crowdflower/first-gop-debate-twitter-sentiment#)
 
 ## Folder Structure:
-- ** api/  : ** contains all the files needed for the flask container
-- ** nginx/ : **  contains all the files needed for the nginx container
-- **  docker-compose.yml : ** config file for docker-compose 
+- ### api/  :  contains all the files needed for the flask container
+- ### nginx/ :   contains all the files needed for the nginx container
+- ## docker-compose.yml : ** config file for docker-compose 
 
 ## How to Run : 
 Make sure that docker is installed on the system before starting 
-1. ** Clone the directory **
-2. ** Build the container images ** (from the directory of the repo) 
+### 1. Clone the directory
+### 2. Build the container images ** (from the directory of the repo) 
 ```
 $ docker-compose up --build
 ```
-** Note ** : --build is only needed the first time you are running this command
+** Note : --build is only needed the first time you are running this command **
+
 Now the container will be up and running on http://localhost .
-3. ** Send Request **
+
+## 3. Send Request 
 Open a new terminal and send a POST request
 ```
 $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Your Input Here"}' 'http://localhost:8000/predict'
 ```
 
-##How to Improve Accuracy :
+## How to Improve Accuracy :
 One approache is to use an Attention based model like Transformers. RNNs and LSTMs are more difficult to train as compared to Transformers
 as they require a lot more memory-bandwidth for computation. Hence they cannot utilize hardware acceleration.
