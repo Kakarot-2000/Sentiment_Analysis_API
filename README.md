@@ -14,14 +14,14 @@ Dataset downloaded from : [link](https://www.kaggle.com/crowdflower/first-gop-de
 - docker-compose.yml  :  config file for docker-compose 
 
 ## How to Run : 
-Make sure that docker is installed on the system before starting 
+Make sure that docker is installed on the system before starting.
 #### 1. Clone the directory
 #### 2. Build the container images (from the directory of the repo) 
 ```
 $ docker-compose up --build
 ```
 
-Note : --build is only needed the first time you are running this command
+Note : --build is only needed the first time you are running this command.
 
 Now the container will be up and running on http://localhost .
 
