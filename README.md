@@ -25,7 +25,7 @@ Note : --build is only needed the first time you are running this command
 
 Now the container will be up and running on http://localhost .
 
-## 3. Send Request 
+### 3. Send Request 
 Open a new terminal and send a POST request
 ```
 $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Your Input Here"}' 'http://localhost:8000/predict'
