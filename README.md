@@ -15,8 +15,8 @@ Dataset downloaded from : [link](https://www.kaggle.com/crowdflower/first-gop-de
 
 ## How to Run : 
 Make sure that docker is installed on the system before starting 
-### 1. Clone the directory
-### 2. Build the container images ** (from the directory of the repo) 
+#### 1. Clone the directory
+#### 2. Build the container images ** (from the directory of the repo) 
 ```
 $ docker-compose up --build
 ```
@@ -25,7 +25,7 @@ Note : --build is only needed the first time you are running this command
 
 Now the container will be up and running on http://localhost .
 
-### 3. Send Request 
+#### 3. Send Request 
 Open a new terminal and send a POST request
 ```
 $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Your Input Here"}' 'http://localhost:8000/predict'
