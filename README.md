@@ -32,7 +32,8 @@ $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Your Input Here
 ```
 
 ## Working :
-Nginx faces the outside world and serves media files(images,CSS etc) directly from the file system. Gunicorn(WSGI server implementation) serves the web app with requests and gets back responses. Gunicorn then sends back these responses to nginx.
+Nginx works as reverse proxy and faces the outside world. It serves media files(images,CSS etc) directly from the file system.However, it 
+can't directly talk to the python web app. It needs something that wil serve the web app with requests and gets back responses. This requirement is satisfied by Gunicorn. Gunicorn(WSGI server implementation) serves the web app with requests and gives back the responses to nginx.
 
 #### The outside world <-> Nginx <-> Gunicorn <-> Web App
 
