@@ -31,15 +31,15 @@ $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Your Input Here
 ```
 
 ## How to run the API component seperately
-### 1. Move into the api folder
+#### 1. Move into the api folder
 ```
 $ cd api
 ```
-### 2. Run using gunicorn
+#### 2. Run using gunicorn
 ```
 $ gunicorn -w 1 -b :8000 app:app
 ```
-### 3. Test API endpoint from terminal
+#### 3. Test API endpoint from terminal
 ```
 $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Text Here"}' 'http://localhost:8000/predict'
 ```
