@@ -20,7 +20,6 @@ Make sure that docker is installed on the system before starting.
 ```
 $ docker-compose up --build
 ```
-
 Note : --build is only needed the first time you are running this command.
 
 Now the container will be up and running on http://localhost .
@@ -31,6 +30,19 @@ Open a new terminal and send a POST request
 $ curl -H "Content-type: application/json" -d '{"_query_":"Enter Your Input Here"}' 'http://localhost:8000/predict'
 ```
 
+## How to run the API component seperately
+### 1. Move into the api folder
+```
+$ cd api
+```
+### 2. Run using gunicorn
+```
+$ gunicorn -w 1 -b :8000 app:app
+```
+### 3. Test API endpoint from terminal
+```
+$ curl -H "Content-type: application/json" -d '{"_query_":"Enter Text Here"}' 'http://localhost:8000/predict'
+```
 ## Working :
 Nginx works as reverse proxy and faces the outside world. It serves media files(images,CSS etc) directly from the file system.However, it 
 can't directly talk to the python web app. It needs something that wil serve the web app with requests and gets back responses. This requirement is satisfied by Gunicorn. Gunicorn(WSGI server implementation) serves the web app with requests and gives back the responses to nginx.
