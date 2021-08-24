@@ -40,8 +40,9 @@ $ cd api
 $ gunicorn -w 1 -b :8000 app:app
 ```
 #### 3. Test API endpoint from terminal
+![Running the container](https://github.com/Kakarot-2000/Sentiment_Analysis_API/blob/master/image.jpg)
 ```
-$ curl -H "Content-type: application/json" -d '{"_query_":"Enter Text Here"}' 'http://localhost:8000/predict'
+$ curl -H "Content-type: application/json" -d '{"_query_":"Enter Text Here"}' 'http://0.0.0.0:8000/predict'
 ```
 ## Working :
 Nginx works as reverse proxy and faces the outside world. It serves media files(images,CSS etc) directly from the file system.However, it 
