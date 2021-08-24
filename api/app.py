@@ -51,7 +51,7 @@ def api():
         print('Working')
         t = tokenizer.texts_to_sequences(list1)
         val = pad_sequences(t, maxlen=24)
-        res = model3.predict_classes(val)
+        res = (model3.predict(val) > 0.5).astype("int32")
         print('res : ', res)
         res = res[0][0]
         if(res == 1):
