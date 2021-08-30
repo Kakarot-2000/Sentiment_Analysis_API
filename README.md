@@ -3,6 +3,8 @@ To perform sentiment analysis on 2016 Presidential Election tweets.
 In my previous approach I have used Naive Bayes Classifier to solve the problem, however LSTMs(Long Short Term Memory network)  provide more accuracy than traditional ML approaches( given sufficient data :) ) because of their ability to "remember" i.e to keep track of context in text sequences. Also, an increase in accuracy from 78%(using Naive-Bayes) to 87% was achieved using LSTMs.Here, I have deployed my model as REST Api so that it can easily be used in different platforms.
 
 Training Dataset Accuracy: 87.62%
+
+
 Testing Dataset Accuracy: 80.17%
 ## Why use LSTM?
 
